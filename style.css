@@ -1,0 +1,147 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fddddd;
+  margin: 0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  width: 100%;
+  max-width: 500px;
+  background: #fff2eb;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.task-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.task-input button {
+  background-color: #e47a7a;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-input button:hover {
+  background-color: #ff009d;
+}
+
+.task-section {
+  margin-bottom: 30px;
+}
+
+.task-section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  background: #f0f0f0;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.task-list li:hover {
+  background: #e0e0e0;
+}
+
+.task-list li.finished {
+  background-color: #d4edda;
+  text-decoration: line-through;
+}
+
+.task-actions button {
+  margin-left: 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-right: 6px;
+}
+
+.task-actions button:hover {
+  background-color: #ccc;
+}
+
+/* ✏️ Edit button – green */
+.task-actions button:nth-child(1) {
+  background-color: #ffbc4c; /* vibrant green */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.task-actions button:nth-child(1):hover {
+  background-color: #ffee93; /* darker green */
+}
+
+/* 🗑 Delete button – red */
+.task-actions button:nth-child(2) {
+  background-color: #fb4141; /* bright red */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.task-actions button:nth-child(2):hover {
+  background-color: #ff3f33; /* deeper red */
+}
+
+/* ✔️ Finish button - green */
+.task-actions button.toggle.finish {
+  background-color: #4caf50;
+  color: white;
+}
+.task-actions button.toggle.finish:hover {
+  background-color: #388e3c;
+}
+
+/* ↩ Undo button - blue-gray */
+.task-actions button.toggle.undo {
+  background-color: #607d8b;
+  color: white;
+}
+.task-actions button.toggle.undo:hover {
+  background-color: #455a64;
+}
