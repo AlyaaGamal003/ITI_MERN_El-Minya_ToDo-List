@@ -2,7 +2,7 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fddddd;
   margin: 0;
-  padding: 40px;
+  padding: 20px;
   display: flex;
   justify-content: center;
 }
@@ -10,25 +10,22 @@ body {
   width: 100%;
   max-width: 500px;
   background: #fff2eb;
-  padding: 30px;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
-
 h1 {
   text-align: center;
-  font-size: 28px;
+  font-size: 24px;
   margin-bottom: 20px;
 }
-
 .task-input {
   display: flex;
+  flex-direction: column;
   gap: 10px;
   margin-bottom: 25px;
 }
-
 .task-input input {
-  flex: 1;
   padding: 12px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -39,32 +36,27 @@ h1 {
   background-color: #e47a7a;
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 12px;
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
 .task-input button:hover {
   background-color: #ff009d;
 }
-
 .task-section {
   margin-bottom: 30px;
 }
-
 .task-section h2 {
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 10px;
   color: #333;
 }
-
 .task-list {
   list-style: none;
   padding: 0;
 }
-
 .task-list li {
   background: #f0f0f0;
   margin-bottom: 10px;
@@ -73,62 +65,47 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   transition: background 0.3s;
 }
-
 .task-list li:hover {
   background: #e0e0e0;
 }
-
 .task-list li.finished {
   background-color: #d4edda;
   text-decoration: line-through;
 }
-
+.task-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
 .task-actions button {
-  margin-left: 5px;
   padding: 6px 10px;
   font-size: 14px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-right: 6px;
 }
-
-.task-actions button:hover {
-  background-color: #ccc;
-}
-
-/* ✏️ Edit button – green */
+/* Edit */
 .task-actions button:nth-child(1) {
-  background-color: #ffbc4c; /* vibrant green */
+  background-color: #ffbc4c;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 .task-actions button:nth-child(1):hover {
-  background-color: #ffee93; /* darker green */
+  background-color: #ffee93;
 }
-
-/* 🗑 Delete button – red */
+/* Delete */
 .task-actions button:nth-child(2) {
-  background-color: #fb4141; /* bright red */
+  background-color: #fb4141;
   color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
 }
 .task-actions button:nth-child(2):hover {
-  background-color: #ff3f33; /* deeper red */
+  background-color: #ff3f33;
 }
-
-/* ✔️ Finish button - green */
+/* Finish */
 .task-actions button.toggle.finish {
   background-color: #4caf50;
   color: white;
@@ -136,12 +113,60 @@ h1 {
 .task-actions button.toggle.finish:hover {
   background-color: #388e3c;
 }
-
-/* ↩ Undo button - blue-gray */
+/* Undo */
 .task-actions button.toggle.undo {
   background-color: #607d8b;
   color: white;
 }
 .task-actions button.toggle.undo:hover {
   background-color: #455a64;
+}
+/* Notification */
+#notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1000;
+}
+#notification.show {
+  opacity: 1;
+}
+/* For Responsive  */
+@media (min-width: 600px) {
+  .task-input {
+    flex-direction: row;
+  }
+  .task-input input {
+    flex: 1;
+  }
+  .task-actions {
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+  .task-list li {
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 20px;
+  }
+  .task-input button {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .task-section h2 {
+    font-size: 16px;
+  }
+  .task-actions button {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
 }
